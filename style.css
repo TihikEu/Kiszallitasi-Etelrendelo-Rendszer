@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+body{
+    font-family: "Google Sans", sans-serif !important;
+    font-size: 11px;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: .6px;
+}
+
+input, button, select, a, span, h2{
+    font-size: 11px !important;
+}
+
+input, button, select{
+    border-radius: 5px !important;
+}
+
+.accordion-item{
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.bi-card-image{
+    background-color: #cccccca6;
+    color: #fff;
+}
+
+.megse, .szerk-torol button{
+    border: 1px solid #cccccca6 !important;
+}
+
+.nincs-rendeles{
+    padding: 170px 0px !important;
+}
+
+.span-hover, .collapse-inner, .rendelesek, .filter, header, footer{
+    background-color: #cccccc42;
+}
+
+.span-hover:hover{
+    background-color: #cccccc5e;
+    transition: .1s;
+}
+
+select:hover, .span-hover:hover, td{
+    cursor: pointer;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.szerk-torol button{
+    padding: 8px 12px;
+}
+
+.torles:hover{
+    border: 1px solid #dd134634 !important;
+    background-color: #f7285c2d !important;
+}
+.torles:hover i{ 
+    color: #dd1346 !important;
+}
+
+.hozzaadas, .uj-rendeles{
+    width: 117px !important;
+    flex: 0 0 auto !important;
+}
+
+.szerkesztes:hover, .megse:hover{
+    background-color: #e7e7e731 !important;
+}
+
+.rendelesek{
+    overflow-y: scroll;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+.map{
+    height: 320px ;
+}

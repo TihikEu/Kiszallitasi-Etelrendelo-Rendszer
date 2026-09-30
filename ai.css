@@ -1,0 +1,33 @@
+@media (min-width: 992px) {
+    .col-right {
+        position: relative;
+    }
+
+    .col-right-inner {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: .5rem;
+        right: .5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-right-inner > *:not(.rendelesek) {
+        flex-shrink: 0;
+    }
+
+    .col-right-inner .rendelesek {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: scroll;
+        scrollbar-gutter: stable;
+    }
+
+    .col-right-inner .rendelesek thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #fff;
+    }
+}
