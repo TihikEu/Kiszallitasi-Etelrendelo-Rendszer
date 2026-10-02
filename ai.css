@@ -26,8 +26,51 @@
 
     .col-right-inner .rendelesek thead th {
         position: sticky;
-        top: 0;
+        top: 20px !important;
         z-index: 1;
         background: #fff;
     }
+}
+
+/* ===== táblázat sorai ===== */
+.rendelesek{
+    padding: 0 0 0 16px;
+}
+
+.rendelesek table{
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0 18px;
+}
+
+.rendelesek th,
+.rendelesek td{
+    background-color: #fff;
+    border: 1px solid #cccccca6;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.rendelesek th{
+    padding: 16px;
+    font-weight: 700;
+}
+
+.rendelesek tr > :first-child{
+    border-left: 1px solid #cccccca6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.rendelesek tr > :last-child{
+    border-right: 1px solid #cccccca6;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;    
+}
+
+.rendelesek tbody tr{
+    cursor: pointer;
 }

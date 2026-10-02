@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +13,8 @@
 
   <title>Kiszállítási &amp; Ételrendelő Rendszer</title>
 </head>
-<body>
 
+<body>
   <header class="border-bottom mb-4">
     <div class="container">
       <nav>
@@ -26,7 +27,6 @@
       </nav>
     </div>
   </header>
-
   <main>
     <section class="py-5">
       <div class="container">
@@ -41,7 +41,8 @@
             </div>
             <div class="border p-3 rounded rounded-2 map-card">
               <h2 class="d-flex align-items-center gap-2">Szallitasi zonak terkepe</h2>
-              <span class="span-hover rounded map rounded-2 w-100 border p-3 fw-bold fs-4 text-center d-block position-relative"></span>
+              <span
+                class="span-hover rounded map rounded-2 w-100 border p-3 fw-bold fs-4 text-center d-block position-relative"></span>
             </div>
             <div class="border p-3 rounded rounded-2 card-ico">
               <h2 class="d-flex align-items-center gap-2">Teljesitmenymutatok</h2>
@@ -51,14 +52,15 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8 px-3 col-right">
+          <div class="col-lg-8 col-right">
             <div class="col-right-inner">
-              <div class="d-flex align-items-stretch gap-3 mb-3">
-                <div class="border p-3 rounded rounded-2 flex-fill card-ico d-flex flex-column">
+              <div class="d-flex flex-column flex-md-row align-items-stretch gap-3 mb-3">
+                <div class="border p-3 rounded rounded-2 w-100 card-ico d-flex flex-column">
                   <h2 class="d-flex align-items-center gap-2">Aktiv szallitasok ossz erteke</h2>
-                  <span class="span-hover osszeg w-100 border rounded rounded-2 p-3 text-center flex-grow-1 d-flex flex-column justify-content-center align-items-center"></span>
+                  <span
+                    class="span-hover osszeg w-100 border rounded rounded-2 p-3 text-center flex-grow-1 d-flex flex-column justify-content-center align-items-center"></span>
                 </div>
-                <div class="border p-3 rounded rounded-2 flex-fill card-ico legkozelebbi-card">
+                <div class="border p-3 rounded rounded-2 w-100 card-ico legkozelebbi-card">
                   <h2 class="d-flex align-items-center gap-2">Legkozelebbi rendeles</h2>
                   <div class="d-flex align-items-center gap-3 justify-content-center">
                     <span class="span-hover text-center rounded rounded-2 border w-100 p-3 legkozelebbi-ido"></span>
@@ -66,6 +68,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item border-top border-start border-end">
                   <div class="accordion-header p-3" id="flush-headingOne">
@@ -74,19 +77,18 @@
                         <h2 class="m-0">Rendelesek</h2>
                       </div>
                       <div class="col-md-3 d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary uj-rendeles"
-                          data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                          aria-expanded="false" aria-controls="flush-collapseOne">
+                        <button type="button" class="btn btn-primary uj-rendeles" data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                           Uj Rendeles
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
                     <div class="collapse-inner px-3 py-4 border-top">
                       <form>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-3 mb-3">
                           <div class="col-md-6">
                             <label for="ugyfel-nev" class="form-label form-text text-dark">Megrendelo Neve</label>
                             <input type="text" class="form-control ugyfelNev" placeholder="Kiss Anna">
@@ -96,7 +98,7 @@
                             <input type="text" class="form-control szallitasiCim" placeholder="Vadasz u. 12.">
                           </div>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-3 mb-3">
                           <div class="col-md-3">
                             <label for="etel-nev" class="form-label form-text text-dark">Etel Neve</label>
                             <input type="text" class="form-control etelNev" placeholder="Margarita pizza">
@@ -111,19 +113,21 @@
                           </div>
                           <div class="col-md-3">
                             <label for="osszeg" class="form-label form-text text-dark">Osszeg ( Ft )</label>
-                            <input type="number" class="form-control osszeg" min="0" placeholder="3490">
+                            <input type="number" class="form-control input_osszeg" min="0" placeholder="3490">
                           </div>
                           <div class="col-md-3">
-                            <label for="hataraido-perc" class="form-label form-text text-dark">Kiszallitasi Ido ( Perc )</label>
+                            <label for="hataraido-perc" class="form-label form-text text-dark">Kiszallitasi Ido ( Perc
+                              )</label>
                             <input type="number" class="form-control hataraidPerc" min="0" placeholder="20">
                           </div>
                         </div>
-                        <div class="row g-2 mt-3">
+                        <div class="row g-3 mt-3">
                           <div class="col-md-9"></div>
-                          <div class="col-md-3 gombok d-flex gap-2">
-                            <button type="button" class="btn btn-light w-50 megse"
-                              data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">Megse</button>
+                          <div class="col-md-3 gombok d-flex gap-3">
+                            <button type="button" class="btn btn-light w-50 megse" data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapseOne">Megse</button>
                             <button type="button" class="btn btn-primary w-50 hozzaadas">Uj Hozzaadas</button>
+                            <button type="button" class="btn btn-primary d-none w-50 mentes">Mentes</button>
                           </div>
                         </div>
                       </form>
@@ -132,12 +136,10 @@
                 </div>
               </div>
               <div class="border filter p-3">
-                <div class="row g-2 align-items-center">
+                <div class="row g-3 align-items-center">
                   <div class="col-md-9">
-                    <div class="input-group">
-                      <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
-                      <input type="text" class="form-control border-start-0 kereses" id="kereses" placeholder="Kereses nev, cim vagy etel szerint">
-                    </div>
+                    <input type="text" class="form-control border kereses" id="kereses"
+                      placeholder="Kereses nev, cim vagy etel szerint">
                   </div>
                   <div class="col-md-3">
                     <select class="form-select text-dark keres-select" id="statusz-szuro">
@@ -172,28 +174,39 @@
       </div>
     </section>
   </main>
+
   <footer class="border-top mt-5">
     <div class="container">
       <p class="text-center m-0 py-3">Minden jog fenntartva! 2026 &copy;</p>
     </div>
   </footer>
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Rendeles</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Show a second modal and hide this one with the button below.
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Torles</button>
+        <div class="modal-footer d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Torles</button>
+            <div data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+              aria-controls="flush-collapseOne">
+              <button class="btn btn-warning szerkeszt" data-bs-dismiss="modal">Szerkesztes</button>
+            </div>
+          </div>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Bezar</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -201,11 +214,43 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Biztos szeretne torolni?
+          <p class="m-0">Biztos szeretne torolni?</p>
+        </div>
+        <div class="modal-footer d-flex align-items-center justify-content-between">
+          <button class="btn btn-danger torol" data-bs-dismiss="modal">Torles</button>
+          <button class="btn btn-secondary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Megse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="SuccessModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Megse</button>
-          <button class="btn btn-danger torol" data-bs-dismiss="modal">Torles</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ErrorModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Hiba!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Renben</button>
         </div>
       </div>
     </div>
@@ -213,7 +258,9 @@
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/Rendeles.js"></script>
+  <script src="js/Etelek.js"></script>
   <script src="js/main.js"></script>
 
 </body>
+
 </html>

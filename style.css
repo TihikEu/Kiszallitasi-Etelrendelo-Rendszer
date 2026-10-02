@@ -39,14 +39,14 @@ li{
 }
 
 .nincs-rendeles{
-    padding: 170px 0px !important;
+    padding: 140px 0px !important;
 }
 
 .span-hover, .collapse-inner, .rendelesek, .filter, header, footer{
     background-color: #cccccc42;
 }
 
-.span-hover:hover{
+.span-hover:hover, .rendelesek tbody tr:hover td{
     background-color: #cccccc5e;
     transition: .1s;
 }
@@ -73,7 +73,7 @@ footer{
     color: #dd1346 !important;
 }
 
-.hozzaadas, .uj-rendeles{
+.hozzaadas, .uj-rendeles, .mentes{
     width: 117px !important;
     flex: 0 0 auto !important;
 }
@@ -90,4 +90,10 @@ footer{
 
 .map{
     height: 320px ;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
