@@ -1,99 +1,224 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
-body{
-    font-family: "Google Sans", sans-serif !important;
-    font-size: 11px;
-    line-height: 1.5;
+body {
+    position: relative;
+    min-height: 100vh;
+    font-family: "IBM Plex Sans", sans-serif !important;
+    font-size: 12px;
     font-weight: 400;
+    line-height: 1.5;
     letter-spacing: .6px;
 }
 
-input, button, select, a, span, h2{
-    font-size: 11px !important;
+.animated-gradient {
+    position: relative;
+    background: linear-gradient(45deg, #35a3e3 10%, #0c2264 25%, #211d2f 35%, #08070e 40%, #08070e 60%, #211d2f 65%, #0c2264 75%, #35a3e3 90%);
+    background-size: 100% 100%;
+    animation: gradient-breathing 8s ease-in-out reverse infinite;
 }
 
-input, button, select{
-    border-radius: 5px !important;
+@keyframes gradient-breathing {
+    0%, 100% { opacity: 1; filter: brightness(100%); }
+    50% { opacity: 0.8; filter: brightness(120%); }
 }
 
-.accordion-item{
-    border-top-left-radius: 5px !important;
-    border-top-right-radius: 5px !important;
+header, main, footer {
+    width: 100%;
 }
 
-a{
+header, footer {
+    flex-shrink: 0;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+main .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 992px) {
+    .layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+}
+
+input, button, select, a, span, h2, h1 {
+    font-size: 12px !important;
+}
+
+input, button, select {
+    border-radius: 3px !important;
+}
+
+a {
     text-decoration: none;
 }
 
-li{
+li {
     list-style: none;
 }
 
-.bi-card-image{
-    background-color: #cccccca6;
-    color: #fff;
-}
-
-.megse, .szerk-torol button{
-    border: 1px solid #cccccca6 !important;
-}
-
-.nincs-rendeles{
-    padding: 140px 0px !important;
-}
-
-.span-hover, .collapse-inner, .rendelesek, .filter, header, footer{
-    background-color: #cccccc42;
-}
-
-.span-hover:hover, .rendelesek tbody tr:hover td{
-    background-color: #cccccc5e;
-    transition: .1s;
-}
-
-select:hover, .span-hover:hover, td{
+select:hover, .span-hover:hover, td {
     cursor: pointer;
 }
 
-footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.keres-select, .kereses, header .container, footer .container, input, button, select, .card .c{
+    background-color: #0e0d11cc !important;
+    border: 1px solid #ffffff25 !important;
 }
 
-.szerk-torol button{
-    padding: 8px 12px;
+.rendelesek, .accordion-header, .collapse-inner {
+    background-color: #0c0c147e;
 }
 
-.torles:hover{
-    border: 1px solid #dd134634 !important;
-    background-color: #f7285c2d !important;
-}
-.torles:hover i{ 
-    color: #dd1346 !important;
+.collapse-inner {
+    border-left: 1px solid #ffffff25;
+    border-right: 1px solid #ffffff25;
+    border-top: 1px solid #ffffff25;
 }
 
-.hozzaadas, .uj-rendeles, .mentes{
-    width: 117px !important;
+.card, .rendelesek td, .filter {
+    background-color: #1c1c24ce;
+}
+
+.card-ico, .c {
+    transform: translateY(0);
+    transition: transform .3s ease-in-out, border-color .3s ease-in-out, box-shadow .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.card-ico:hover, .c:hover, tbody tr:hover td{
+    transform: translateY(-3px);
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.megse, .uj-rendeles, .mentes, .hozzaadas, .card, .card-ico, .aktiv, .rendelesek,
+.futar, .keszul, input, select, button, .kiszallitva, .osszeg, .map, .atlagIdo,
+.szallitasiZonak, .legkozelebbi-ido, .legkozelebbi-id, .filter {
+    border: 1px solid #ffffff25;
+}
+
+.accordion-header {
+    border-top: 1px solid #ffffff25;
+    border-right: 1px solid #ffffff25;
+    border-left: 1px solid #ffffff25;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.rendelesek {
+    border-bottom: 1px solid #ffffff25 !important;
+    border-left: 1px solid #ffffff25 !important;
+    border-right: 1px solid #ffffff25 !important;
+    border-top: none !important;
+}
+
+.hozzaadas, .uj-rendeles, .mentes {
     flex: 0 0 auto !important;
+    width: 117px !important;
 }
 
-.szerkesztes:hover, .megse:hover{
-    background-color: #e7e7e731 !important;
+.accordion-item {
+    border-radius: 3px 3px 0 0 !important;
 }
 
-.rendelesek{
+.nincs-rendeles {
+    padding: 140px 0 !important;
+}
+
+.rendelesek {
+    max-height: 70vh;
     overflow-y: scroll;
-    border-bottom-left-radius: 5px !important;
-    border-bottom-right-radius: 5px !important;
+    border-radius: 0 0 3px 3px;
 }
 
-.map{
-    height: 320px ;
-}
-
-footer{
-    position: absolute;
-    bottom: 0;
+.rendelesek table {
     width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0 16px;
+    background-color: transparent;
+}
+
+.rendelesek thead th {
+    font-size: 10px;
+    font-weight: 500;
+    color: #adb5bd;
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+}
+
+.rendelesek tbody td {
+    border: solid #ffffff25;
+    border-width: 1px 0;
+    transform: translateY(0);
+    transition: background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out, transform .3s ease-in-out;
+}
+
+.rendelesek tbody td span {
+    transition: color .3s ease-in-out;
+}
+
+.rendelesek tbody tr > :first-child {
+    position: relative;
+    border-left: 1px solid #ffffff25;
+    border-radius: 3px 0 0 3px;
+}
+
+.rendelesek tbody .kiszallitva td {
+    border-color: #ffffff11;
+}
+
+.rendelesek tbody .kiszallitva td, .rendelesek tbody .kiszallitva td span, .card-ico:hover .c{
+    color: #ffffff4f;
+}
+
+.rendelesek tbody tr:hover td, .rendelesek tbody tr:hover td span, .c:hover{
+    color: #ffffff !important;
+}
+
+.rendelesek tbody tr:hover td {
+    border-color: #ffffff3f;
+}
+
+.statusz-csik {
+    width: 25px;
+    padding: 0 !important;
+    border-radius: 0 3px 3px 0;
+}
+
+.kiszallitva .statusz-csik {
+    background-color: #17a351 !important;
+}
+
+.futarnal .statusz-csik {
+    background-color: #ff073d !important;
+}
+
+.keszul .statusz-csik {
+    background-color: #ebdd18 !important;
+}
+
+.map {
+    height: 320px;
 }

@@ -11,8 +11,6 @@ class Rendeles {
         this.setStatusz(statusz);
     }
 
-    // Getterek
-
     getId() {
         return this.#id;
     }
@@ -26,8 +24,6 @@ class Rendeles {
         return this.#statusz;
     }
 
-    // Setterek
-
     setId(id) {
         this.#id = id;
     }
@@ -40,4 +36,9 @@ class Rendeles {
     setStatusz(statusz) {
         this.#statusz = statusz;
     }
+
+    toString() {
+        return this.getId() + " " + this.getUgyfelNev() + " : " + this.getCim() + " | " + this.getStatusz();
+    }
+
 }

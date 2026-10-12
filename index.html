@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" data-bs-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,126 +8,118 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="css/ai.css" />
-  <link rel="stylesheet" href="css/mobile.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/radar.css" />
 
   <title>Kiszállítási &amp; Ételrendelő Rendszer</title>
 </head>
 
-<body>
-  <header class="border-bottom mb-4">
-    <div class="container">
-      <nav>
-        <ul class="m-0 py-3 d-flex align-items-center justify-content-center gap-3">
-          <li><a href="#" class="text-dark">Verity</a></li>
-          <li><a href="#" class="text-dark">Falsity</a></li>
-          <li><a href="#" class="text-dark">Cruelity</a></li>
-          <li><a href="#" class="text-dark">Lovity</a></li>
-        </ul>
+<body class="animated-gradient py-2 d-flex flex-column align-items-end justify-content-center gap-2">
+  <header class="flex-grow-1 m-0">
+    <div class="container rounded-1 my-4">
+      <nav class="d-flex align-items-center justify-content-between">
+        <h1 class="m-0 px-1">Adminisztricaos Felulet</h1>
+        <h2 class="m-0 py-4 d-flex align-items-center justify-content-center real-time-ora"></h2>
       </nav>
     </div>
   </header>
   <main>
-    <section class="py-5">
+    <section>
       <div class="container">
-        <div class="row g-3">
-          <div class="col-lg-4 d-flex flex-column gap-3">
-            <div class="border p-3 rounded rounded-2 w-100 card-ico">
-              <h2 class="d-flex align-items-center gap-2">Rendelesek allapota</h2>
+        <div class="layout">
+          <div class="d-flex flex-column gap-3">
+            <div class="p-3 rounded-1 card card-ico">
+              <h2>Rendelesek allapota</h2>
               <div class="d-flex align-items-center gap-3 justify-content-center">
-                <span class="span-hover rounded rounded-2 border w-50 p-3 aktiv text-center"></span>
-                <span class="span-hover rounded rounded-2 border w-50 p-3 futar text-center"></span>
+                <span class="span-hover c rounded-1 w-50 p-3 aktiv text-center"></span>
+                <span class="span-hover c rounded-1 w-50 p-3 futar text-center"></span>
               </div>
             </div>
-            <div class="border p-3 rounded rounded-2 map-card">
-              <h2 class="d-flex align-items-center gap-2">Szallitasi zonak terkepe</h2>
-              <span
-                class="span-hover rounded map rounded-2 w-100 border p-3 fw-bold fs-4 text-center d-block position-relative"></span>
+            <div class="p-3 rounded-1 card card-ico map-card">
+              <h2>Szallitasi zonak terkepe</h2>
+              <span class="span-hover c rounded-1 map w-100 p-3 fw-bold text-center d-block position-relative"></span>
             </div>
-            <div class="border p-3 rounded rounded-2 card-ico">
-              <h2 class="d-flex align-items-center gap-2">Teljesitmenymutatok</h2>
+            <div class="p-3 rounded-1 card card-ico">
+              <h2>Teljesitmenymutatok</h2>
               <div class="d-flex align-items-center gap-3 justify-content-center">
-                <span class="span-hover text-center rounded rounded-2 border w-100 p-3 atlagIdo"></span>
-                <span class="span-hover text-center rounded rounded-2 border w-100 p-3 szallitasiZonak"></span>
+                <span class="span-hover c text-center rounded-1 w-100 p-3 atlagIdo"></span>
+                <span class="span-hover c text-center rounded-1 w-100 p-3 szallitasiZonak"></span>
               </div>
             </div>
           </div>
-          <div class="col-lg-8 col-right">
+          <div class="col-right">
             <div class="col-right-inner">
-              <div class="d-flex flex-column flex-md-row align-items-stretch gap-3 mb-3">
-                <div class="border p-3 rounded rounded-2 w-100 card-ico d-flex flex-column">
-                  <h2 class="d-flex align-items-center gap-2">Aktiv szallitasok ossz erteke</h2>
+              <div class="d-flex flex-column flex-md-row gap-3 mb-3">
+                <div class="p-3 rounded-1 w-100 card card-ico d-flex flex-column">
+                  <h2>Aktiv szallitasok ossz erteke</h2>
                   <span
-                    class="span-hover osszeg w-100 border rounded rounded-2 p-3 text-center flex-grow-1 d-flex flex-column justify-content-center align-items-center"></span>
+                    class="span-hover c osszeg w-100 rounded-1 p-3 text-center flex-grow-1 d-flex flex-column justify-content-center align-items-center"></span>
                 </div>
-                <div class="border p-3 rounded rounded-2 w-100 card-ico legkozelebbi-card">
-                  <h2 class="d-flex align-items-center gap-2">Legkozelebbi rendeles</h2>
+                <div class="p-3 rounded-1 w-100 card card-ico legkozelebbi-card">
+                  <h2>Legkozelebbi rendeles</h2>
                   <div class="d-flex align-items-center gap-3 justify-content-center">
-                    <span class="span-hover text-center rounded rounded-2 border w-100 p-3 legkozelebbi-ido"></span>
-                    <span class="span-hover text-center rounded rounded-2 border w-100 p-3 legkozelebbi-id"></span>
+                    <span class="span-hover c text-center rounded-1 w-100 p-3 legkozelebbi-ido"></span>
+                    <span class="span-hover c text-center rounded-1 w-100 p-3 legkozelebbi-id"></span>
                   </div>
                 </div>
               </div>
 
-              <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item border-top border-start border-end">
+              <div class="accordion accordion-flush">
+                <div class="accordion-item">
                   <div class="accordion-header p-3" id="flush-headingOne">
                     <div class="row g-2 align-items-center">
                       <div class="col-md-9">
                         <h2 class="m-0">Rendelesek</h2>
                       </div>
                       <div class="col-md-3 d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary uj-rendeles" data-bs-toggle="collapse"
+                        <button type="button" class="btn btn-dark uj-rendeles" data-bs-toggle="collapse"
                           data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                           Uj Rendeles
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="collapse-inner px-3 py-4 border-top">
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                    <div class="collapse-inner px-3 py-4">
                       <form>
                         <div class="row g-3 mb-3">
                           <div class="col-md-6">
-                            <label for="ugyfel-nev" class="form-label form-text text-dark">Megrendelo Neve</label>
+                            <label class="form-label form-text text-body">Megrendelo Neve</label>
                             <input type="text" class="form-control ugyfelNev" placeholder="Kiss Anna">
                           </div>
                           <div class="col-md-6">
-                            <label for="szallitasi-cim" class="form-label form-text text-dark">Szallitasi Cim</label>
+                            <label class="form-label form-text text-body">Szallitasi Cim</label>
                             <input type="text" class="form-control szallitasiCim" placeholder="Vadasz u. 12.">
                           </div>
                         </div>
                         <div class="row g-3 mb-3">
                           <div class="col-md-3">
-                            <label for="etel-nev" class="form-label form-text text-dark">Etel Neve</label>
+                            <label class="form-label form-text text-body">Etel Neve</label>
                             <input type="text" class="form-control etelNev" placeholder="Margarita pizza">
                           </div>
                           <div class="col-md-3">
-                            <label for="statusz" class="form-label form-text text-dark">Statusz</label>
-                            <select class="form-select text-dark statusz">
+                            <label class="form-label form-text text-body">Statusz</label>
+                            <select class="form-select text-body statusz">
                               <option selected value="Keszul">Keszul</option>
                               <option value="Futarnal">Futarnal</option>
                               <option value="Kiszallitva">Kiszallitva</option>
                             </select>
                           </div>
                           <div class="col-md-3">
-                            <label for="osszeg" class="form-label form-text text-dark">Osszeg ( Ft )</label>
+                            <label class="form-label form-text text-body">Osszeg ( Ft )</label>
                             <input type="number" class="form-control input_osszeg" min="0" placeholder="3490">
                           </div>
                           <div class="col-md-3">
-                            <label for="hataraido-perc" class="form-label form-text text-dark">Kiszallitasi Ido ( Perc
-                              )</label>
+                            <label class="form-label form-text text-body">Kiszallitasi Ido ( Perc )</label>
                             <input type="number" class="form-control hataraidPerc" min="0" placeholder="20">
                           </div>
                         </div>
                         <div class="row g-3 mt-3">
-                          <div class="col-md-9"></div>
-                          <div class="col-md-3 gombok d-flex gap-3">
-                            <button type="button" class="btn btn-light w-50 megse" data-bs-toggle="collapse"
+                          <div class="col-md-3 offset-md-9 gombok d-flex gap-3">
+                            <button type="button" class="btn btn-dark w-50 megse" data-bs-toggle="collapse"
                               data-bs-target="#flush-collapseOne">Megse</button>
-                            <button type="button" class="btn btn-primary w-50 hozzaadas">Uj Hozzaadas</button>
-                            <button type="button" class="btn btn-primary d-none w-50 mentes">Mentes</button>
+                            <button type="button" class="btn btn-dark w-50 hozzaadas">Uj Hozzaadas</button>
+                            <button type="button" class="btn btn-dark d-none w-50 mentes">Mentes</button>
                           </div>
                         </div>
                       </form>
@@ -135,14 +127,13 @@
                   </div>
                 </div>
               </div>
-              <div class="border filter p-3">
+              <div class="filter p-3">
                 <div class="row g-3 align-items-center">
                   <div class="col-md-9">
-                    <input type="text" class="form-control border kereses" id="kereses"
-                      placeholder="Kereses nev, cim vagy etel szerint">
+                    <input type="text" class="form-control kereses" placeholder="Kereses nev, cim vagy etel szerint">
                   </div>
                   <div class="col-md-3">
-                    <select class="form-select text-dark keres-select" id="statusz-szuro">
+                    <select class="form-select text-body keres-select">
                       <option selected value="Osszes">Osszes Statusz</option>
                       <option value="Keszul">Keszul</option>
                       <option value="Futarnal">Futarnal</option>
@@ -151,17 +142,15 @@
                   </div>
                 </div>
               </div>
-              <div class="rendelesek border-start border-end border-bottom">
-                <table class="table table-hover m-0 align-middle">
-                  <thead>
-                    <tr>
-                      <th class="p-3" scope="col">Id</th>
-                      <th class="p-3" scope="col">Megrendelo</th>
-                      <th class="p-3" scope="col">Cim</th>
-                      <th class="p-3" scope="col">Etel</th>
-                      <th class="p-3" scope="col">Osszeg</th>
-                      <th class="p-3" scope="col">Ido</th>
-                      <th class="p-3" scope="col">Statusz</th>
+              <div class="rendelesek ps-3 pb-3 border-start border-end border-bottom">
+                <table class="table m-0 align-middle">
+                  <thead class="border-bottom">
+                    <tr class="text-uppercase">
+                      <th class="px-3 py-0 m-0 form-text" scope="col">Id</th>
+                      <th class="px-3 py-0 m-0 form-text" scope="col">Megrendelo</th>
+                      <th class="px-3 py-0 m-0 form-text" scope="col">Etel</th>
+                      <th class="px-3 py-0 m-0 form-text" scope="col">Statusz</th>
+                      <th class="p-0" scope="col"></th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -175,9 +164,9 @@
     </section>
   </main>
 
-  <footer class="border-top mt-5">
-    <div class="container">
-      <p class="text-center m-0 py-3">Minden jog fenntartva! 2026 &copy;</p>
+  <footer class="flex-grow-1 m-0">
+    <div class="container rounded-1 my-4">
+      <p class="text-center m-0 py-4">Minden jog fenntartva! 2026 &copy;</p>
     </div>
   </footer>
 
@@ -189,9 +178,8 @@
           <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Rendeles</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer d-flex align-items-center justify-content-between">
+        <div class="modal-body"></div>
+        <div class="modal-footer justify-content-between">
           <div class="d-flex align-items-center gap-3">
             <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Torles</button>
             <div data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
@@ -216,7 +204,7 @@
         <div class="modal-body">
           <p class="m-0">Biztos szeretne torolni?</p>
         </div>
-        <div class="modal-footer d-flex align-items-center justify-content-between">
+        <div class="modal-footer justify-content-between">
           <button class="btn btn-danger torol" data-bs-dismiss="modal">Torles</button>
           <button class="btn btn-secondary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Megse</button>
         </div>
@@ -231,8 +219,7 @@
           <h5 class="modal-title"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-        </div>
+        <div class="modal-body"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezar</button>
         </div>
@@ -247,10 +234,9 @@
           <h5 class="modal-title">Hiba!</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-        </div>
+        <div class="modal-body"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Renben</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Rendben</button>
         </div>
       </div>
     </div>
@@ -259,8 +245,9 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/Rendeles.js"></script>
   <script src="js/Etelek.js"></script>
+  <script src="js/radar.js"></script>
   <script src="js/main.js"></script>
-
+  <script src="js/teszteles.js"></script>
 </body>
 
 </html>

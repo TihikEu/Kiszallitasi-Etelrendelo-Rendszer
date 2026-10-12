@@ -1,0 +1,155 @@
+.map {
+    position: relative;
+    overflow: hidden;
+    background-image: radial-gradient(circle, #ffffff22 1px, transparent 1.5px);
+    background-size: 24px 24px;
+    background-position: center;
+}
+
+.radar-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.radar-point.st-keszul,
+.radar-lines line.st-keszul {
+    --c: #ebdd18;
+}
+
+.radar-point.st-futarnal,
+.radar-lines line.st-futarnal {
+    --c: #ff073d;
+}
+
+.radar-lines line {
+    stroke: var(--c, #ff073d);
+    stroke-opacity: .45;
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+}
+
+.radar-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-radius: 50%;
+    background: #6c8cff;
+    box-shadow: 0 0 20px #41a7fa;
+    z-index: 2;
+}
+
+.radar-center::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+    border-radius: 50%;
+    background: #458bf348;
+    animation: radar-pulse 2.4s ease-out infinite;
+}
+
+@keyframes radar-pulse {
+    0%   { transform: scale(.5); opacity: 1; }
+    100% { transform: scale(7.5); opacity: 0; }
+}
+
+.radar-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: var(--c, #ff073d);
+    box-shadow: 0 0 8px var(--c, #ff073d);
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity .4s ease, transform .4s ease, background-color .4s ease, box-shadow .4s ease;
+    animation: radar-in .4s ease-out backwards;
+}
+
+.radar-ring {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: var(--c, #ff073d);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radar-point.leaving {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.radar-lines line {
+    transition: opacity .4s ease, stroke .4s ease;
+    animation: radar-line-in .4s ease-out backwards;
+}
+
+.radar-lines line.leaving {
+    opacity: 0;
+}
+
+@keyframes radar-in {
+    from { opacity: 0; transform: scale(0); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes radar-line-in {
+    from { stroke-opacity: 0; }
+    to   { stroke-opacity: .45; }
+}
+
+.radar-point::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    margin: -11px 0 0 -11px;
+    border-radius: 50%;
+}
+
+.radar-point::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 50%;
+    bottom: 160%;
+    transform: translateX(-50%) translateY(4px);
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: #0e0d11c9;
+    border: 1px solid #ffffff25;
+    color: #ffffff;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.radar-point.below::after {
+    bottom: auto;
+    top: 160%;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+.radar-point:hover {
+    z-index: 5;
+}
+
+.radar-point:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

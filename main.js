@@ -1,10 +1,12 @@
 var rendelesek = [
-    new Rendeles("<strong>#</strong>0001", "Urmandczi Timea", "Vadasz utca 12., Tatabanya", "Futarnal"),
-    new Rendeles("<strong>#</strong>0002", "Kovacs Bela", "Fo utca 12., Tatabanya", "Futarnal")
+    new Rendeles("<strong>#</strong>0001", "Urmandczi Timea", "Vadasz utca 36., Tatabanya", "Keszul"),
+    new Rendeles("<strong>#</strong>0002", "Kovacs Bela", "Fo utca 54., Tatabanya", "Futarnal"),
+    new Rendeles("<strong>#</strong>0002", "Kiss Anna", "Fo utca 12., Tatabanya", "Futarnal")
 ];
 
 var rendelt_etelek = [
-    new Etelek("Kincses Adam", 3490, 7),
+    new Etelek("Kincses Adam", 3490, 1),
+    new Etelek("Margarita pizza", 3490, 0),
     new Etelek("Margarita pizza", 3490, 43)
 ];
 
@@ -53,10 +55,6 @@ function kiir() {
     }
 };
 
-// Methodok
-
-// Methodok: Status korigacio
-
 function statuszCheck() {
     for (let i = 0; i < rendelesek.length; i++) {
         if (rendelt_etelek[i].getHatraidoPerc() < 1) {
@@ -68,15 +66,11 @@ function statuszCheck() {
     }
 }
 
-// Methodok: ID refress
-
 function idRefress() {
     for (let i = 0; i < rendelesek.length; i++) {
         rendelesek[i].setId("<strong>#</strong>" + String(i + 1).padStart(4, "0"));
     }
 }
-
-// Methodok: Rendeles ID
 
 var rId = (rendelesek.length + 1);
 
@@ -90,32 +84,30 @@ function rendelesId() {
     return x;
 };
 
-// Methodok: Tabla tr
-
 function tableSor(rendeles, rendelt_etelek, index) {
-    var ido = rendelt_etelek.getHatraidoPerc() === 0 ? '<span class="fw-bold text-dark">—</span>' : rendelt_etelek.getHatraidoPerc() + " perc";
-    return `<tr data-bs-toggle="modal" data-bs-target="#exampleModalToggle" onclick="idBeallit(${index})">
-                <td class="form-text p-3">${rendeles.getId()}</td>
-                <td class="form-text p-3">${rendeles.getUgyfelNev()}</td>
-                <td class="form-text p-3">${rendeles.getCim()}</td>
-                <td class="form-text p-3">${rendelt_etelek.getEtelNev()}</td>
-                <td class="form-text p-3">${rendelt_etelek.getOsszeg()} Ft</td>
-                <td class="form-text p-3">${ido}</td>
-                <td class="form-text p-3">${rendeles.getStatusz()}</td>
+    var ido = rendelt_etelek.getHatraidoPerc() === 0 ? '<span class="fw-bold text-body">—</span>' : rendelt_etelek.getHatraidoPerc() + " perc";
+    return `<tr class="align-middle m-0 ${badgeCheck(rendeles.getStatusz())}" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" onclick="idBeallit(${index})">
+                <td class="form-text p-3 m-0">${rendeles.getId()}</td>
+                <td class="form-text p-3 m-0">${rendeles.getUgyfelNev()}<br><span class="form-text">${rendeles.getCim()}</span></td>
+                <td class="form-text p-3 m-0">${rendelt_etelek.getEtelNev()}<br><span class="form-text">${rendelt_etelek.getOsszeg()} Ft</span></td>
+                <td class="form-text p-3 m-0">${ido}<br><span class="form-text">${rendeles.getStatusz()}</span></td>
+                <td class="statusz-csik ${rendeles.getStatusz()}"></td>
             </tr>`;
 };
 
-// Methodok: Szallitasok osszeg
+function badgeCheck(x) {
+    if (x === "Kiszallitva") return "kiszallitva";
+    if (x === "Futarnal") return "futarnal";
+    return "keszul";
+}
 
 function szallitasokErteke() {
     var osszeg = 0;
     for (let i = 0; i < rendelesek.length; i++) {
-        osszeg += Number(rendelt_etelek[i].getOsszeg());
+        if (rendelesek[i].getStatusz() !== "Kiszallitva") osszeg += Number(rendelt_etelek[i].getOsszeg());
     }
-    $(".osszeg").innerHTML = "<span class='fs-4 fw-bold'>" + osszeg.toLocaleString("hu-HU", { style: "currency", currency: "HUF" }) + "</span>";
+    $(".osszeg").innerHTML = (osszeg !== 0) ? "<span class='fs-4 fw-bold'>" + osszeg + " Ft</span>" : "<span class='fs-4'><i class='bi bi-dash-lg'></i></span>";
 };
-
-// Methodok: Aktiv szallitasok
 
 function aktivSzallitasok() {
     var db = 0, futarDb = 0;
@@ -124,18 +116,16 @@ function aktivSzallitasok() {
         else if (rendelesek[i].getStatusz() === "Futarnal") db++, futarDb++;
     }
     if (db !== 0) {
-        $(".aktiv").innerHTML = "<span class='fs-4 fw-bold'>" + db + "</span><br>Aktiv";
+        $(".aktiv").innerHTML = "<span class='fs-4 fw-bold'>" + db + "</span><br><span class='form-text'>Aktiv</span>";
     } else {
-        $(".aktiv").innerHTML = "<span class='fs-4 fw-bold'><i class='bi bi-dash-lg'></i></span><br>Aktiv";
+        $(".aktiv").innerHTML = "<span class='fs-4'><i class='bi bi-dash-lg'></i></span><br><span class='form-text'>Aktiv</span>";
     }
     if (futarDb !== 0) {
-        $(".futar").innerHTML = "<span class='fs-4 fw-bold'>" + futarDb + "</span><br>Futarnal";
+        $(".futar").innerHTML = "<span class='fs-4 fw-bold'>" + futarDb + "</span><br><span class='form-text'>Futarnal</span>";
     } else {
-        $(".futar").innerHTML = "<span class='fs-4 fw-bold'><i class='bi bi-dash-lg'></i></span><br>Futarnal";
+        $(".futar").innerHTML = "<span class='fs-4'><i class='bi bi-dash-lg'></i></span><br><span class='form-text'>Futarnal</span>";
     }
 };
-
-// Methodok: Atlagido
 
 function atlagIdo() {
     var ido = 0;
@@ -148,30 +138,26 @@ function atlagIdo() {
     }
     var atlag = parseInt(ido / db);
     if (isNaN(atlag)) {
-        $(".atlagIdo").innerHTML = "<span class='fs-4 fw-bold'><i class='bi bi-dash-lg fw-bold'></i></span><br>Atlagos hatralevo ido";
+        $(".atlagIdo").innerHTML = "<span class='fs-4'><i class='bi bi-dash-lg'></i></span><br><span class='form-text'>Atlagos hatralevo ido</span>";
     } else {
-        $(".atlagIdo").innerHTML = "<span class='fs-4 fw-bold'>" + atlag + " p</span><br>Atlagos hatralevo ido";
+        $(".atlagIdo").innerHTML = "<span class='fs-4 fw-bold'>" + atlag + " p</span><br><span class='form-text'>Atlagos hatralevo ido</span>";
     }
 };
-
-// Methodok: Szallitasi zonak
 
 function szallitasiZonak() {
     var zonak = [];
     for (let i = 0; i < rendelesek.length; i++) {
         var r = rendelesek[i];
-        if (!zonak.includes(r.getCim())) {
+        if (r.getStatusz() !== "Kiszallitva" && !zonak.includes(r.getCim())) {
             zonak.push(r.getCim());
         }
     }
     if (zonak.length != 0) {
-        $(".szallitasiZonak").innerHTML = "<span class='fs-4 fw-bold'>" + zonak.length + "</span><br>Aktiv szallitasi zonak";
+        $(".szallitasiZonak").innerHTML = "<span class='fs-4 fw-bold'>" + zonak.length + "</span><br><span class='form-text'>Aktiv szallitasi zonak</span>";
     } else {
-        $(".szallitasiZonak").innerHTML = "<span class='fs-4 fw-bold'><i class='bi bi-dash-lg'></i></span><br>Aktiv szallitasi zonak";
+        $(".szallitasiZonak").innerHTML = "<span class='fs-4'><i class='bi bi-dash-lg'></i></span><br><span class='form-text'>Aktiv szallitasi zonak</span>";
     }
 };
-
-// Methodok: Legkozelebbi = legkisebb hatarido
 
 function legkozelebbiHatarido() {
     var lgkHatarido = null;
@@ -188,15 +174,13 @@ function legkozelebbiHatarido() {
     }
 
     if (lgkHatarido == null) {
-        $(".legkozelebbi-ido").innerHTML = "<span class='fs-4 fw-bold'><i class='bi bi-dash-lg'></i></span><br>Ido";
-        $(".legkozelebbi-id").innerHTML = "<span class='fs-4 fw-bold'><i class='bi bi-dash-lg'></i></span><br>ID";
+        $(".legkozelebbi-ido").innerHTML = "<span class='fs-4'><i class='bi bi-dash-lg'></i></span><br><span class='form-text'>Ido</span>";
+        $(".legkozelebbi-id").innerHTML = "<span class='fs-4'><i class='bi bi-dash-lg'></i></span><br><span class='form-text'>ID</span>";
     } else {
-        $(".legkozelebbi-ido").innerHTML = "<span class='fs-4 fw-bold'>" + lgkHatarido.getHatraidoPerc() + " p</span><br>Ido";
-        $(".legkozelebbi-id").innerHTML = "<span class='fs-4 fw-bold'>" + lgkHatarId + "</span><br>ID";
+        $(".legkozelebbi-ido").innerHTML = "<span class='fs-4 fw-bold'>" + lgkHatarido.getHatraidoPerc() + " p</span><br><span class='form-text'>Ido</span>";
+        $(".legkozelebbi-id").innerHTML = "<span class='fs-4 fw-bold'>" + lgkHatarId + "</span><br><span class='form-text'>ID</span>";
     }
 };
-
-// Form reset
 
 function urlapAlaphelyzet() {
     $(".ugyfelNev").value = "";
@@ -214,12 +198,8 @@ function urlapAlaphelyzet() {
     torlendoId = -1;
 };
 
-// Ai
-
 $(".uj-rendeles").addEventListener("click", () => urlapAlaphelyzet());
 $(".megse").addEventListener("click", () => urlapAlaphelyzet());
-
-// Szerkesztes
 
 $(".szerkeszt").addEventListener("click", () => {
     $(".ugyfelNev").value = rendelesek[szerkesztId].getUgyfelNev();
@@ -234,16 +214,12 @@ $(".szerkeszt").addEventListener("click", () => {
     $(".mentes").classList.remove("d-none");
 });
 
-// Input ellenorzes
-
 function inputUres(x, y) {
     if (String(x) === "") {
         return "<p>A(z) <strong>'" + y + "'</strong> input nem lehet ures!</p>";
     }
     return "";
 };
-
-// Input ellenorzes: String
 
 function szovegesInputEllenoriz(x, y) {
     var jo = true;
@@ -265,8 +241,6 @@ function szovegesInputEllenoriz(x, y) {
     }
 }
 
-// Input ellenorzes: Number
-
 function egeszSzam(x, y) {
     if (!Number.isInteger(Number(x))) {
         return "<p>A(z) <strong>'" + y + "'</strong> input csak egesz szam lehet!</p>";
@@ -274,8 +248,6 @@ function egeszSzam(x, y) {
         return "";
     }
 };
-
-// Input ellenorzes: Form
 
 function urlapEllenoriz(rendelo_neve, rendelo_cime, etel_neve, etel_ara, etel_ido) {
     var hiba = "";
@@ -302,8 +274,6 @@ function urlapEllenoriz(rendelo_neve, rendelo_cime, etel_neve, etel_ara, etel_id
     $("#ErrorModal .modal-body").innerHTML = hiba;
     return hiba === "";
 };
-
-// Mentes
 
 $(".mentes").addEventListener("click", () => {
     var rendelo_neve = $(".ugyfelNev").value;
@@ -350,8 +320,6 @@ $(".mentes").addEventListener("click", () => {
     }
 });
 
-// Torles
-
 function idBeallit(i) {
     $("#exampleModalToggle .modal-body").innerHTML = `<p class="m-0">Rendeles ID: ${rendelesek[i].getId()}</p>`;
 
@@ -367,8 +335,6 @@ $(".torol").addEventListener("click", () => {
     szerkesztId = -1;
     kiir();
 });
-
-// Uj rendeles hozzaadas
 
 $(".hozzaadas").addEventListener("click", () => {
     var rendelo_neve = $(".ugyfelNev").value;
@@ -392,7 +358,7 @@ $(".hozzaadas").addEventListener("click", () => {
         kiir();
 
         $("#SuccessModal .modal-title").innerHTML = "Sikeres felvétel!";
-        $("#SuccessModal .modal-body").innerHTML = "<p>Sikeresen hozzáadtuk a(z) <span class='success_rendeles'>" + rendeles.getId() + "</span> rendelést a listába!</p>";
+        $("#SuccessModal .modal-body").innerHTML = "<p class='m-0'>Sikeresen hozzáadtuk a(z) <span class='success_rendeles'>" + rendeles.getId() + "</span> rendelést a listába!</p>";
 
         SuccessModal.show();
     } else {
@@ -400,23 +366,36 @@ $(".hozzaadas").addEventListener("click", () => {
     }
 });
 
-// Kereses
-
 function statuszEgyezik(r) {
-    return $(".keres-select").value === "Osszes" || $(".keres-select").value === r.getStatusz();
+    var select = $(".keres-select").value;
+    return select == "Osszes" || select == r.getStatusz();
 };
 
 function szovegEgyezik(r, e) {
     var kereses = $(".kereses").value.trim().toLowerCase();
-    return kereses === ""
+    return kereses == ""
         || r.getUgyfelNev().toLowerCase().includes(kereses)
         || r.getCim().toLowerCase().includes(kereses)
         || e.getEtelNev().toLowerCase().includes(kereses);
 };
 
-// Kereses esemenyek | Ai
-
 $(".keres-select").addEventListener("change", kiir);
-if ($(".kereses")) $(".kereses").addEventListener("input", kiir);
+$(".kereses").addEventListener("input", kiir);
+
+setInterval(() => {
+    var valtozott = false;
+    for (let i = 0; i < rendelt_etelek.length; i++) {
+        if (rendelt_etelek[i].getHatraidoPerc() > 0) {
+            rendelt_etelek[i].setHatraidoPerc(rendelt_etelek[i].getHatraidoPerc() - 1);
+            valtozott = true;
+        }
+    }
+    if (valtozott) kiir();
+}, (60 * 1000));
+
+setInterval(() => {
+    var datum = new Date()
+    $(".real-time-ora").innerHTML = datum.getFullYear() + ". " + (parseInt(datum.getMonth()) + 1) + ". " + datum.getDay() + ". " + datum.getHours() + ":" + datum.getMinutes() + ":" + datum.getSeconds()
+}, 1000);
 
 kiir();

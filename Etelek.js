@@ -1,15 +1,13 @@
-class Etelek{
+class Etelek {
     #etelNev;
     #osszeg;
     #hatraidoPerc;
 
-    constructor(etelnev, osszeg, hatraidoPerc){
+    constructor(etelnev, osszeg, hatraidoPerc) {
         this.setEtelNev(etelnev);
         this.setOsszeg(osszeg);
         this.setHatraidoPerc(hatraidoPerc);
     }
-
-    // Getterek
 
     getEtelNev() {
         return this.#etelNev;
@@ -21,8 +19,6 @@ class Etelek{
         return this.#hatraidoPerc;
     };
 
-    // Setterek
-
     setEtelNev(etelNev) {
         this.#etelNev = etelNev;
     };
@@ -33,8 +29,10 @@ class Etelek{
 
     setHatraidoPerc(hatraidoPerc) {
         this.#hatraidoPerc = parseInt(hatraidoPerc);
-        
     };
 
+    toString() {
+        return this.getEtelNev() + ": " + this.getOsszeg() + " Ft | " + this.getHatraidoPerc() + " perc";
+    }
 
 }
